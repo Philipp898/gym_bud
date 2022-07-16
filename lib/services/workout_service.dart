@@ -1,3 +1,5 @@
+import 'package:gym_bud/models/cardio.dart';
+
 import '../models/uebung.dart';
 import 'package:gym_bud/models/workout.dart';
 
@@ -10,10 +12,13 @@ List<Workout> generateDummyData() {
 
   var uebungBauch2 =
       Uebung("Sit-Ups", [Reps(75, 12), Reps(75, 12), Reps(75, 12)]);
+
+      var cardio1= Cardio(6, 30, "min");
   List<Workout> workoutList = [
     Workout(1, "Arme", DateTime(2022, 07, 16), "Philipp", [uebungArme1,uebungArme2]),
     Workout(1, "Bauch", DateTime(2022, 07, 20), "Philipp",[uebungBauch2])
   ];
+  workoutList[1].cardio = cardio1;
   return workoutList;
 }
 

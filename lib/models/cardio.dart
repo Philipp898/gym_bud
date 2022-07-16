@@ -1,7 +1,7 @@
 class Cardio {
   final int stufe;
   final int dauer;
-  final int einheit;
+  final String einheit;
 
    const Cardio(
     this.stufe, 

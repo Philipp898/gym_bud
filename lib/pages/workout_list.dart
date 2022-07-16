@@ -42,12 +42,18 @@ class _WorkoutListState extends State<WorkoutList> {
                 ],
               ),
               subtitle: Container(
-                padding: const EdgeInsets.only(top: 5.0),
-                child: Text(
-                  "Anzahl an Übungen: ${workoutList[i].uebung.length}",
-                  style: const TextStyle(color: Colors.grey, fontSize: 15.0),
-                ),
-              ))
+                  padding: const EdgeInsets.only(top: 5.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        "Anzahl an Übungen: ${workoutList[i].uebung.length}",
+                        style:
+                            const TextStyle(color: Colors.grey, fontSize: 15.0),
+                      ),
+                      if(workoutList[i].cardio != null) const Icon(Icons.run_circle_outlined),
+                    ],
+                  )))
         ],
       ),
     );

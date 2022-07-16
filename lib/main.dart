@@ -43,7 +43,29 @@ class _HomepageState extends State<Homepage> {
         title: Text(generateGreeting()),
       ),
       body: const WorkoutList(),
+      bottomNavigationBar: Row(
+        children: <Widget>[
+          IconButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const WorkoutList())), icon: const Icon(Icons.add))
+        ],)
     );
   }
+}
+
+class AddWorkout extends StatefulWidget {
+  const AddWorkout({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
+  @override
+  State<AddWorkout> createState() => _AddWorkoutState();
+}
+
+class _AddWorkoutState extends State<AddWorkout>{
+  
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
+
 }
 
