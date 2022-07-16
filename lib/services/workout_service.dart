@@ -1,0 +1,53 @@
+import '../models/uebung.dart';
+import 'package:gym_bud/models/workout.dart';
+
+List<Workout> generateDummyData() {
+
+    var uebungArme1 =
+      Uebung("Bankdrücken", [Reps(40, 12), Reps(45, 12), Reps(50, 12)]);
+  var uebungArme2 =
+      Uebung("Butterfly", [Reps(39, 12), Reps(45, 12), Reps(54, 10)]);
+
+  var uebungBauch2 =
+      Uebung("Sit-Ups", [Reps(75, 12), Reps(75, 12), Reps(75, 12)]);
+  List<Workout> workoutList = [
+    Workout(1, "Arme", DateTime(2022, 07, 16), "Philipp", [uebungArme1,uebungArme2]),
+    Workout(1, "Bauch", DateTime(2022, 07, 20), "Philipp",[uebungBauch2])
+  ];
+  return workoutList;
+}
+
+var workoutList = generateDummyData();
+
+List<Workout> findAllWorkouts() {
+  return workoutList;
+}
+
+void createNewWorkout(Workout workout) {
+  workoutList.add(workout);
+}
+
+Workout findLastWorkout() {
+  workoutList
+      .sort((workout1, workout2) => workout1.datum.compareTo(workout2.datum));
+  return workoutList[0];
+}
+
+Workout findWorkoutById(Workout workout) {
+  return workoutList.firstWhere((wo) => wo.id == workout.id);
+}
+
+void addUebungToWorkout(Uebung uebung, Workout workout) {
+  workoutList.firstWhere((wo) => wo.id == workout.id).uebung.add(uebung);
+}
+
+void removeUebungFromWorkout(Uebung uebung, Workout workout) {
+  var foundUebung = workoutList
+      .firstWhere((wo) => wo.id == workout.id)
+      .uebung
+      .firstWhere((ue) => ue.name == uebung.name);
+  workoutList
+      .firstWhere((wo) => wo.id == workout.id)
+      .uebung
+      .remove(foundUebung);
+}
