@@ -7,7 +7,7 @@ class Workout {
   final String kategorie;
   final DateTime datum;
   bool beendet = false;
-  final List<Uebung> uebung;
+  List<Uebung> uebung = List.empty(growable: true);
   Cardio? cardio;
 
   Workout(
@@ -15,7 +15,6 @@ class Workout {
     this.kategorie,
     this.datum ,
     this.nutzer,
-    this.uebung
   );
 }
 

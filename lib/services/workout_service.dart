@@ -15,9 +15,13 @@ List<Workout> generateDummyData() {
 
       var cardio1= Cardio(6, 30, "min");
   List<Workout> workoutList = [
-    Workout(1, "Arme", DateTime(2022, 07, 16), "Philipp", [uebungArme1,uebungArme2]),
-    Workout(1, "Bauch", DateTime(2022, 07, 20), "Philipp",[uebungBauch2])
+    Workout(1, "Arme", DateTime(2022, 07, 16), "Philipp"),
+    Workout(1, "Bauch", DateTime(2022, 07, 20), "Philipp")
   ];
+  workoutList[0].uebung.add(uebungArme1);
+  workoutList[0].uebung.add(uebungArme2);
+  workoutList[1].uebung.add(uebungBauch2);
+
   workoutList[1].cardio = cardio1;
   return workoutList;
 }

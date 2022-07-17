@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:gym_bud/models/workout.dart';
+import 'package:gym_bud/services/workout_service.dart';
 import 'package:intl/intl.dart';
 
-import '../services/workout_service.dart';
-
 class WorkoutList extends StatefulWidget {
-  const WorkoutList({Key? key}) : super(key: key);
+  List<Workout> workoutList = List.empty(growable: true);
+
+   WorkoutList({Key? key, required this.workoutList}) : super(key: key);
 
   @override
   State<WorkoutList> createState() => _WorkoutListState();
 }
 
 class _WorkoutListState extends State<WorkoutList> {
-  List<Workout> workoutList = generateDummyData();
 
   @override
   Widget build(BuildContext context) {
+    workoutList = widget.workoutList;
     return ListView.builder(
       itemCount: workoutList.length,
       itemBuilder: (context, i) => Column(
